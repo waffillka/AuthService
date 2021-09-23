@@ -2,7 +2,7 @@
 
 namespace Bookcrossing.Auth.Data.Entities
 {
-    public class User: IdentityUser
+    public class User : IdentityUser
     {
     }
 }
