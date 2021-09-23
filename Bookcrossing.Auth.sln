@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookcrossing.Auth", "Bookcrossing.Auth\Bookcrossing.Auth.csproj", "{A60519B9-6490-4316-A40E-C07C6C2557A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A60519B9-6490-4316-A40E-C07C6C2557A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A60519B9-6490-4316-A40E-C07C6C2557A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A60519B9-6490-4316-A40E-C07C6C2557A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A60519B9-6490-4316-A40E-C07C6C2557A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80BD56A6-FBB8-44DE-BEEB-FB5491CD94E6}
+	EndGlobalSection
+EndGlobal
