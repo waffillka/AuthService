@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,9 +9,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+
+    <PackageReference Include="RSK.Audit" Version="2.0.0-preview1" />
+    <PackageReference Include="RSK.Audit.EF" Version="2.0.0-preview1" />
+    <PackageReference Include="IdentityExpress.Manager.Api.Community" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bookcrossing.Auth.Contracts\Bookcrossing.Auth.Contracts.csproj" />
     <ProjectReference Include="..\Bookcrossing.Auth.Data\Bookcrossing.Auth.Data.csproj" />
   </ItemGroup>
 
