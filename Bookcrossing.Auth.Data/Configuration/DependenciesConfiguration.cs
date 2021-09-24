@@ -25,6 +25,7 @@ namespace Bookcrossing.Auth.Data.Configuration
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
+                options.User.RequireUniqueEmail = false;
 
             }).AddEntityFrameworkStores<AuthDbContext>()
             .AddDefaultTokenProviders();
@@ -35,7 +36,7 @@ namespace Bookcrossing.Auth.Data.Configuration
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
-
+                
                 options.UserInteraction = new UserInteractionOptions
                 {
                     LogoutUrl = "/Account/Logout",

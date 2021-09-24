@@ -1,4 +1,5 @@
-﻿using Bookcrossing.Auth.Contracts.Models;
+﻿using AutoMapper;
+using Bookcrossing.Auth.Contracts.Models;
 using Bookcrossing.Auth.Data.Entities;
 using IdentityModel;
 using IdentityServer4.Events;
@@ -27,6 +28,7 @@ namespace Bookcrossing.Auth.Controllers.Account
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
+        private readonly IMapper _mapper;
 
         public AccountController(
             UserManager<User> userManager,
@@ -34,7 +36,8 @@ namespace Bookcrossing.Auth.Controllers.Account
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
-            IEventService events)
+            IEventService events, 
+            IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -42,6 +45,7 @@ namespace Bookcrossing.Auth.Controllers.Account
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
             _events = events;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -218,15 +222,15 @@ namespace Bookcrossing.Auth.Controllers.Account
             {
                 return View(vm);
             }
+            var user = _mapper.Map<User>(vm);
 
-            var user = new IdentityUser(vm.Username);
-            var result = await _userManager.CreateAsync((User)user, vm.Password);
+            var result = await _userManager.CreateAsync(user, vm.Password);
 
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync((User)user, false);
+                await _signInManager.SignInAsync(user, false);
 
-                return Redirect(vm.ReturnUrl);
+                return Redirect("~/account/login");
             }
 
             return View();

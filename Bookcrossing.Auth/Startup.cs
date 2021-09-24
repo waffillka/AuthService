@@ -21,6 +21,9 @@ namespace Bookcrossing.Auth
         {
             services.AddBookcrossingAuthData(Configuration.GetConnectionString("sqlConnection"));
             services.AddControllersWithViews();
+            services.AddAutoMapper(
+                c => c.AddProfile<MappingProfile>(),
+                typeof(MappingProfile));
 
             services.Configure<IISOptions>(iis =>
             {

@@ -282,8 +282,6 @@ namespace Bookcrossing.Auth.Controllers.Account
 
             return user;
         }
-
-
         private void ProcessLoginCallbackForOidc(AuthenticateResult externalResult, List<Claim> localClaims, AuthenticationProperties localSignInProps)
         {
             // if the external system sent a session id claim, copy it over
@@ -305,7 +303,6 @@ namespace Bookcrossing.Auth.Controllers.Account
         private void ProcessLoginCallbackForWsFed(AuthenticateResult externalResult, List<Claim> localClaims, AuthenticationProperties localSignInProps)
         {
         }
-
         private void ProcessLoginCallbackForSaml2p(AuthenticateResult externalResult, List<Claim> localClaims, AuthenticationProperties localSignInProps)
         {
         }
