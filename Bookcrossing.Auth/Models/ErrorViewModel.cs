@@ -1,5 +1,3 @@
-using System;
-
 namespace Bookcrossing.Auth.Models
 {
     public class ErrorViewModel
