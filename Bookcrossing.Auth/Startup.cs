@@ -21,6 +21,7 @@ namespace Bookcrossing.Auth
         {
             services.AddBookcrossingAuthData(Configuration.GetConnectionString("sqlConnection"));
             services.AddControllersWithViews();
+
             services.AddAutoMapper(
                 c => c.AddProfile<MappingProfile>(),
                 typeof(MappingProfile));
@@ -37,6 +38,10 @@ namespace Bookcrossing.Auth
                 iis.AuthenticationDisplayName = "Windows";
                 iis.AutomaticAuthentication = false;
             });
+
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +59,9 @@ namespace Bookcrossing.Auth
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseCors("AllowAll");
+            app.UseIdentityServer();
 
             app.UseRouting();
 
